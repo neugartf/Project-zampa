@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Welcome to Zampa 🐶</h2>
+
+<p>A community to exchange dog walking and sitting.</p>
+
+<br>
+
+<a href="{{ url_for('register') }}">Join Now</a>
+<br><br>
+<a href="{{ url_for('board') }}">Find Members</a>
+
+{% endblock %}

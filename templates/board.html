@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🐶 Message Board</h2>
+
+<h3>Create a Post</h3>
+
+<form method="POST">
+
+    <label>Title:</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description" required></textarea><br><br>
+
+    <label>Neighborhood:</label><br>
+    <input type="text" name="neighborhood" required><br><br>
+
+    <label>Time:</label><br>
+    <select name="time">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="night">Night</option>
+    </select><br><br>
+
+    <label>Type:</label><br>
+    <select name="type">
+        <option value="need">I need help</option>
+        <option value="offer">I can help</option>
+    </select><br><br>
+
+    <button type="submit">Post</button>
+
+</form>
+
+<hr>
+
+<h3>All Posts</h3>
+
+{% if posts %}
+    {% for post in posts %}
+        <div style="border:1px solid black; padding:10px; margin-bottom:10px;">
+            <strong>{{ post.title }}</strong><br>
+            {{ post.description }}<br><br>
+
+            📍 {{ post.neighborhood }} |
+            🕒 {{ post.time }} |
+            🔄 {{ post.type }}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts yet 😢</p>
+{% endif %}
+
+{% endblock %}
