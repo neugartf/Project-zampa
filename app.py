@@ -45,7 +45,7 @@ def success():
 
 @app.route("/about")
 def about():
-    return "<h2>About Zampa</h2>"
+    return render_template("about.html")
 
 @app.route("/board", methods=["GET", "POST"])
 def board():
